@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up Page</title>
+    <link rel="stylesheet" href="signup.css">
+    <script crossorigin="anonymous" src="https://kit.fontawesome.com/70a642cd7c.js"></script>
+    <script>
+        function validate(){
+            var name=document.stud_form.name;
+            var email=document.stud_form.email;
+            var mobile=document.stud_form.mobile;
+            var gender=document.stud_form.gender;
+            var course=document.stud_form.course;
+            var program=document.stud_form.program;
+            if(name.value.length<=0){
+                alert("Name is required")
+                name.focus()
+                return false;
+            }
+            if(mobile.value.length<=0){
+                alert("Mobile No is required")
+                mobile.focus()
+                return false;
+            }
+            if(email.value.length<=0){
+                alert("Email is required")
+                email.focus()
+                return false;
+            }
+            if(gender.value.length<=0){
+                alert("gender is required")
+                gender.focus()
+                return false;
+            }
+            if(course.value=="Select"){
+                alert("Course is required")
+                course.focus()
+                return false;
+            }
+            var check=false;
+            for(var i=program.length-1;i>=0;i--){
+                if(program[i].checked){
+                    check=true;
+                }
+            }
+                if(check==false){
+                    alert("Program is required")
+                    return false;
+                }
+            
+            
+        
+            return false;
+              
+        }
+        function validateString(id){
+            var element=document.getElementById(id);
+            var regExp=/^[a-zA-Z]{1,15}$/;
+            if(!regExp.test(element.value)){
+                alert("Enter valid String");
+                return false;
+            }
+        }
+        function validateEmail(id){
+            var element=document.getElementById(id);
+            var regExp=/^[a-zA-Z0-9._]+@[a-zA-Z0-9._]+\.[a-zA-Z]{2,4}$/;
+            if(!regExp.test(element.value)){
+                alert("Enter valid Email");
+                return false;
+            }
+        
+        }
+        function validateNumb(id){
+            var element=document.getElementById(id);
+            var regExp=/^[0-9 ]{11}$/;
+            if(!regExp.test(element.value)){
+                alert("Enter valid Phone number");
+                return false;
+            }
+        }
+        
+            </script>
+        
+</head>
+<body > 
+<div class="container" >
+   <div class="sign-up">
+    <h1 class="heading">Sign-up</h1>
+    <form method="" action="" name="stud_form" onsubmit="return validate()">
+    <div class="text">
+    <img height="20px" src="user.png" />
+    <label> Name:</label>
+    <input placeholder="Enter Name" type="text" id="name" name="name" onblur="validateString(this.id)"/>
+    </div>
+    <div class="text">
+    <img height="12px" src="email.png" />
+    <label> Email:</label>
+    <input placeholder=" Example@gmail.com" type="email" name="email" id="email" onblur="validateEmail(this.id)"/>
+    </div>
+    <div class="text">
+    <img height="20px" src="password.png" />
+    <label> Password:</label>
+    <input placeholder="Enter Password" type="password" />
+    </div>
+    <div class="text">
+        <img height="20px" src="phone.png" />
+        <label> Mobile:</label>
+        <input placeholder="Enter Mobile" type="text" id="mob"  name="mobile" onblur="validateNumb(this.id)" />
+        </div></form>
+    <div class="trems">
+    <input type="checkbox" />
+    <p class="conditions" >I read and agree to <a href="#">Trems &amp; Conditions</a></p>
+    </div>
+   <button>CREATE ACCOUNT</button>
+   <p class="conditions">Already have an account <a href="#">Sign in</a></p>
+   <ul class="social">
+	<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+	<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+	<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+	<li><a href="#"><i class="fab fa-youtube"></i></a></li>
+	</ul>
+    </div>
+   <div class="text-container">
+    <h1 style="color: #2d2c2c; font-family: arial; line-height: 20px;">Shahwar Khan</h1>
+    <h1 style="color: #2d2c2c; font-family: arial; line-height: 20px;">29787</h1>
+    <p>Wellcome,Please Fill the from for sign up</p>
+    
+    </div>
+    </div>
+	
+</body>
+</html>
